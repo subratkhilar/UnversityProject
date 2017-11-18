@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx" 
+ xmlns:task="http://www.springframework.org/schema/task"
+ xmlns:util="http://www.springframework.org/schema/util"
+ 
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+      	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+
+
+
+	<!-- Property Config -->
+	<!-- <context:property-placeholder location="classpath:resources/database.properties"></context:property-placeholder> -->
+	<!-- End Property config -->
+	<context:annotation-config />
+	<context:component-scan base-package="com.institute" />
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+
+
+ <task:annotation-driven />
+    <bean id="demoServiceBasicUsageCron" class="com.institute.util.NotificationCronJob"></bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/spandan" />
+		<property name="username" value="root" />
+		<property name="password" value="19870604" />
+	</bean>
+
+	<!-- Definition for studentJDBCTemplate bean -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10000000" />
+	</bean>
+
+	<!-- Enable Annotation based Declarative Transaction Management -->
+	<tx:annotation-driven proxy-target-class="true"
+		transaction-manager="transactionManager" />
+
+	<!-- Creating TransactionManager Bean, since JDBC we are creating of type 
+		DataSourceTransactionManager -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+	 <bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass">
+			<value>
+				org.springframework.web.servlet.view.tiles2.TilesView
+			</value>
+		</property>
+	</bean>
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>
+		</property>
+	</bean> 
+	<bean id="savedRequestAwareAuthenticationSuccessHandler"
+		class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+		<property name="targetUrlParameter" value="targetUrl" />
+	</bean>
+	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"> 
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" 
+		/> <property name="prefix" value="/WEB-INF/views/" /> <property name="suffix" 
+		value=".jsp" /> </bean>  -->
+</beans>

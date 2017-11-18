@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+	   "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  
+	   "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+	</definition>
+
+	<definition name="home" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+	</definition>
+
+	<definition name="login" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+	</definition>
+
+	<definition name="admin" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/admin/dashbord.jsp" />
+	</definition>
+	<definition name="user" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/user.jsp" />
+	</definition>
+	<definition name="insti" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/institute/dashbord.jsp" />
+	</definition>
+	<definition name="college" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/college/dashbord.jsp" />
+	</definition>
+
+	<definition name="prin" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/principal/dashbord.jsp" />
+	</definition>
+	<definition name="stud" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/student/dashbord.jsp" />
+	</definition>
+	<!-- <definition name="gardian" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/gardian/dashbord.jsp" />
+		<put-attribute name="body" value="guardian.menu.body" />
+	</definition> -->
+	
+	
+	<!-- GUARDIAN START -->
+	<definition name="gardian" extends="base.definition">
+		<put-attribute name="body" value="gardian.menu.body" />
+	</definition>
+	<definition name="gardian.menu.body"
+		template="/WEB-INF/views/gardian/template/menuLayout.jsp">
+		<put-attribute name="subMenuheader"
+			value="/WEB-INF/views/gardian/template/menu.jsp" />
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/gardian/dashbord.jsp" />
+	</definition>
+	
+	<definition name="guardianNotification" extends="base.definition">
+		<put-attribute name="body" value="gardian.guardianNotification.body" />
+	</definition>
+		
+	<definition name="gardian.guardianNotification.body" extends="gardian.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/gardian/guardianNotification.jsp" />
+	</definition>
+	
+	<definition name="showNotificationData" extends="base.definition">
+		<put-attribute name="body" value="gardian.showNotificationData.body" />
+	</definition>
+		
+	<definition name="gardian.showNotificationData.body" extends="gardian.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/gardian/showNotificationData.jsp" />
+	</definition>
+	
+	<!--  GUARDIAN END -->
+
+	<definition name="accessDenied" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/accessDenied.jsp" />
+	</definition>
+
+	<definition name="instituteRegistration" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/instituteRegistration.jsp" />
+	</definition>
+	<definition name="collegeRegistration" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/collegeRegistration.jsp" />
+	</definition>
+	<definition name="principalRegistration" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/principalRegistration.jsp" />
+	</definition>
+	<definition name="studentRegd" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/studentRegistration.jsp" />
+	</definition>
+	<!-- Principal module start -->
+	<definition name="prin" extends="base.definition">
+		<put-attribute name="body" value="principal.menu.body" />
+	</definition>
+	<definition name="principal.menu.body"
+		template="/WEB-INF/views/principal/template/menuLayout.jsp">
+		<put-attribute name="subMenuheader"
+			value="/WEB-INF/views/principal/template/menu.jsp" />
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/principal/dashbord.jsp" />
+	</definition>
+	<definition name="broadCastMessage" extends="base.definition">
+		<put-attribute name="body" value="principal.broadCastMessage.body" />
+	</definition>
+	<definition name="principal.broadCastMessage.body" extends="principal.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/principal/broadCastMessage.jsp" />
+	</definition>
+	
+	<definition name="assetManagement" extends="base.definition">
+		<put-attribute name="body" value="principal.assetManagement.body" />
+	</definition>
+
+	<definition name="principal.assetManagement.body" extends="principal.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/principal/assetManagement.jsp" />
+	</definition>
+	
+	<definition name="createVendor" extends="base.definition">
+		<put-attribute name="body" value="principal.createVendor.body" />
+	</definition>
+
+	<definition name="principal.createVendor.body" extends="principal.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/principal/createVendor.jsp" />
+	</definition>
+	
+	<definition name="mapVendorInventory" extends="base.definition">
+		<put-attribute name="body" value="principal.mapVendorInventory.body" />
+	</definition>
+
+	<definition name="principal.mapVendorInventory.body" extends="principal.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/principal/mapVendorInventory.jsp" />
+	</definition>
+	
+	
+	<definition name="schoolEvent" extends="base.definition">
+		<put-attribute name="body" value="principal.schoolEvent.body" />
+	</definition>
+
+	<definition name="principal.schoolEvent.body" extends="principal.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/principal/schoolEvent.jsp" />
+	</definition>
+	
+	<definition name="viewApproveSchoolEvent" extends="base.definition">
+		<put-attribute name="body" value="principal.viewApproveSchoolEvent.body" />
+	</definition>
+
+	<definition name="principal.viewApproveSchoolEvent.body" extends="principal.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/principal/viewOrApproveSchoolEvent.jsp" />
+	</definition>
+	
+	<definition name="techTimeTable" extends="base.definition">
+		<put-attribute name="body" value="teacher.timetable.body" />
+	</definition>
+
+	<!-- <definition name="broadCastMessage" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/principal/broadCastMessage.jsp" />
+	</definition> -->
+
+
+	<!-- Principal module end -->
+
+	<!-- Teacher module start -->
+
+	<definition name="attendance" extends="base.definition">
+		<put-attribute name="body" value="teacher.attendance.body" />
+	</definition>
+
+	<definition name="teacher.attendance.body"
+		template="/WEB-INF/views/teacher/template/menuLayout.jsp">
+		<put-attribute name="subMenuheader"
+			value="/WEB-INF/views/teacher/template/menu.jsp" />
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/teacher/attendance.jsp" />
+
+	</definition>
+
+	<definition name="techTimeTable" extends="base.definition">
+		<put-attribute name="body" value="teacher.timetable.body" />
+	</definition>
+
+	<definition name="teacher.timetable.body" extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/teacher/timeTable.jsp" />
+	</definition>
+	<definition name="teacher" extends="base.definition">
+		<put-attribute name="body" value="teacher.dashbord.body" />
+	</definition>
+	<definition name="teacher.dashbord.body" extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/teacher/dashbord.jsp" />
+	</definition>
+
+	<definition name="techWeeklyPlanner" extends="base.definition">
+		<put-attribute name="body" value="teacher.techWeeklyPlanner.body" />
+	</definition>
+	<definition name="teacher.techWeeklyPlanner.body" extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/teacher/weeklyPlanner.jsp" />
+	</definition>
+
+	<definition name="techViewWeeklyPlanner" extends="base.definition">
+		<put-attribute name="body" value="teacher.techViewWeeklyPlanner.body" />
+	</definition>
+	<definition name="teacher.techViewWeeklyPlanner.body"
+		extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/teacher/viewWeeklyPlanner.jsp" />
+	</definition>
+
+	<definition name="updateProfile" extends="base.definition">
+		<put-attribute name="body" value="teacher.updateProfile.body" />
+	</definition>
+	<definition name="teacher.updateProfile.body"
+		extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/teacher/profile/updateProfile.jsp" />
+	</definition>
+	
+	<definition name="viewAttendance" extends="base.definition">
+		<put-attribute name="body" value="teacher.viewAttendance.body" />
+	</definition>
+	<definition name="teacher.viewAttendance.body"
+		extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/teacher/viewAttendance.jsp" />
+	</definition>
+	
+	<definition name="selfAttendance" extends="base.definition">
+		<put-attribute name="body" value="teacher.viewAttendance.body" />
+	</definition>
+	<definition name="teacher.selfAttendance.body"
+		extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/teacher/selfAttendance.jsp" />
+	</definition>
+	
+	<definition name="viewSelfAttendance" extends="base.definition">
+		<put-attribute name="body" value="teacher.viewSelfAttendance.body" />
+	</definition>
+	<definition name="teacher.viewSelfAttendance.body"
+		extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/teacher/viewSelfAttendance.jsp" />
+	</definition>
+	<definition name="dailyDiaryByTeacher" extends="base.definition">
+		<put-attribute name="body" value="teacher.dailyDiaryByTeacher.body" />
+	</definition>
+	<definition name="teacher.dailyDiaryByTeacher.body"
+		extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/teacher/dialyDiary.jsp" />
+	</definition>
+	<!--  curriculam sub menu -->
+	<definition name="curriculum" extends="base.definition">
+		<put-attribute name="body" value="teacher.curriculum.body" />
+	</definition>
+	<definition name="teacher.curriculum.body"	extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody" value="/WEB-INF/views/teacher/curriculum.jsp" />
+	</definition>
+	
+	<!--  update cuuriculum sub menu -->
+	<definition name="viewUpdCurriculum" extends="base.definition">
+		<put-attribute name="body" value="teacher.viewUpdCurriculum.body" />
+	</definition>
+	<definition name="teacher.viewUpdCurriculum.body"	extends="teacher.attendance.body">
+		<put-attribute name="subMenuBody" value="/WEB-INF/views/teacher/viewUpdateCurriculum.jsp" />
+	</definition>
+	
+	
+	<!-- Teacher module end -->
+
+	<!-- college module start -->
+
+	<definition name="registerLibrarian" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/college/registerLibrarian.jsp" />
+	</definition>
+	<definition name="registerTeacherWithSubject" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/college/teacherWithSubject.jsp" />
+	</definition>
+
+	<definition name="subject" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/college/createSubject.jsp" />
+	</definition>
+	<definition name="section" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/college/createSection.jsp" />
+	</definition>
+	<definition name="createTimeTable" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/college/createTimeTable.jsp" />
+	</definition>
+	<definition name="branchRegd" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/college/createBranch.jsp" />
+	</definition>
+
+	<!-- college module end -->
+
+	<!-- librarian module begin -->
+
+	<definition name="librian" extends="base.definition">
+		<put-attribute name="body" value="librarian.menu.body" />
+	</definition>
+	<definition name="librarian.menu.body"
+		template="/WEB-INF/views/librarian/template/menuLayout.jsp">
+		<put-attribute name="subMenuheader"
+			value="/WEB-INF/views/librarian/template/menu.jsp" />
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/librarian/dashbord.jsp" />
+
+	</definition>
+
+	<definition name="addBooks" extends="base.definition">
+		<put-attribute name="body" value="librarian.addBooks.body" />
+	</definition>
+	<definition name="librarian.addBooks.body" extends="librarian.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/librarian/addBook.jsp" />
+	</definition>
+
+	<definition name="updateBook" extends="base.definition">
+		<put-attribute name="body" value="librarian.updateBook.body" />
+	</definition>
+	<definition name="librarian.updateBook.body" extends="librarian.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/librarian/updateBook.jsp" />
+	</definition>
+
+	<definition name="viewAddedBooks" extends="base.definition">
+		<put-attribute name="body" value="librarian.viewAddedBooks.body" />
+	</definition>
+	<definition name="librarian.viewAddedBooks.body" extends="librarian.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/librarian/viewAddedBooks.jsp" />
+	</definition>
+	
+	<definition name="bookAssignment" extends="base.definition">
+		<put-attribute name="body" value="librarian.bookAssignment.body" />
+	</definition>
+	<definition name="librarian.bookAssignment.body" extends="librarian.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/librarian/createBookAssignment.jsp" />
+	</definition>
+	
+	<definition name="updateBookAssignment" extends="base.definition">
+		<put-attribute name="body" value="librarian.updateBookAssignment.body" />
+	</definition>
+	<definition name="librarian.updateBookAssignment.body" extends="librarian.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/librarian/updateBookAssignment.jsp" />
+	</definition>
+	
+	<definition name="libraryMonthlyReport" extends="base.definition">
+		<put-attribute name="body" value="librarian.libraryMonthlyReport.body" />
+	</definition>
+	<definition name="librarian.libraryMonthlyReport.body" extends="librarian.menu.body">
+		<put-attribute name="subMenuBody"
+			value="/WEB-INF/views/librarian/libraryMonthlyReport.jsp" />
+	</definition>
+	
+	<!-- librarian module end -->
+</tiles-definitions>  
